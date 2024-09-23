@@ -1,3 +1,6 @@
+from tools.validator import Validator
+
+
 class Course:
     def __init__(self, id, title, code, department):
         self.id = id
@@ -11,7 +14,7 @@ class Course:
 
     @id.setter
     def id(self, id):
-        self._id = id
+        self._id = Validator.id_validator(id, 'Invalid Id')
 
     @property
     def title(self):
@@ -19,7 +22,7 @@ class Course:
 
     @title.setter
     def title(self, title):
-        self._title = title
+        self._title = Validator.title_validator(title, 'Invalid Title')
 
     @property
     def code(self):
@@ -27,7 +30,7 @@ class Course:
 
     @code.setter
     def code(self, code):
-        self._code = code
+        self._code = Validator.code_validator(code, 'Invalid Code')
 
     @property
     def department(self):
@@ -35,4 +38,9 @@ class Course:
 
     @department.setter
     def department(self, department):
-        self._department = department
+        self._department = Validator.department_validator(department, 'Invalid Department')
+
+
+    def __repr__(self):
+        return f"{self.__dict__}"
+

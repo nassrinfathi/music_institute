@@ -14,7 +14,7 @@ class SeletCourse:
 
     @id.setter
     def id(self, id):
-        self._id = id
+        self._id = validator.id_validator(id,  'Invalid Id')
 
     @property
     def course(self):
@@ -22,7 +22,7 @@ class SeletCourse:
 
     @course.setter
     def course(self, course):
-        self._course = course
+        self._course = validator.course_validator(course, 'Invalid Course')
 
     @property
     def teacher(self):
@@ -30,7 +30,7 @@ class SeletCourse:
 
     @teacher.setter
     def teacher(self, teacher):
-        self._teacher = teacher
+        self._teacher = validator.teacher_validator(teacher, 'Invalid Teacher')
 
     @property
     def student(self):
@@ -38,7 +38,7 @@ class SeletCourse:
 
     @student.setter
     def student(self, student):
-        self._student = student
+        self._student = validator.student_validator(student, 'Invalid Student')
 
     @property
     def date_time(self):
@@ -46,7 +46,7 @@ class SeletCourse:
 
     @date_time.setter
     def date_time(self, date_time):
-        self._date_time = date_time
+        self._date_time = validator.date_validator(date_time, 'Invalid Date')
 
     @property
     def payment(self):
@@ -54,7 +54,7 @@ class SeletCourse:
 
     @payment.setter
     def payment(self, payment):
-        self._payment = payment
+        self._payment = validator.payment_validator(payment, 'Invalid Payment')
 
     @property
     def score(self):
@@ -62,10 +62,11 @@ class SeletCourse:
 
     @score.setter
     def score(self, score):
-        self._score = score
+        self._score = validator.score_validator(score, 'Invalid Score')
 
 
-
+    def __repr__(self):
+        return f"{self.__dict__}"
 
 
 
